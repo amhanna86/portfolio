@@ -1,3 +1,8 @@
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
 project:
     resource: "@ProjectBundle/Controller/"
     type:     annotation
@@ -11,3 +16,7 @@ easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation
     prefix:   /admin
+
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
