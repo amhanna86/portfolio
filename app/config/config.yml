@@ -98,15 +98,19 @@ easy_admin:
                     - { property: 'description', type: 'text', type_options: { required: true } }
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'ProjectBundle\Form\ImageType' }}
             list:
-                fields: ['id','images']
+                fields: ['id','name','description','images']
         User:
             class: UserBundle\Entity\User
-            label: 'Users'
-            form: 
+            form:
                 fields:
-                    - {property: 'username' , type: 'text', type_options: { required: true } }
-                    - {property: 'email' , type: 'email', type_options: { required: true } }
-                    - {property: 'password' , type: 'password', type_options: { required: true } }
+                    - username
+                    - email
+                    - enabled
+                    - lastLogin
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+
 
 
 
