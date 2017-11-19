@@ -1,7 +1,12 @@
+site_style:
+    resource: "@SiteStyleBundle/Controller/"
+    type:     annotation
+    prefix:   /site_style
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
-    prefix:   /user
+    prefix:   /users
 
 project:
     resource: "@ProjectBundle/Controller/"

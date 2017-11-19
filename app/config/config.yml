@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: "@ProjectBundle/Resources/config/services.yml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@SiteStyleBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -51,12 +52,7 @@ doctrine:
         user: '%database_user%'
         password: '%database_password%'
         charset: UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: '%kernel.root_dir%/../var/data/data.sqlite'
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #path: '%database_path%'
+
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
@@ -85,9 +81,24 @@ vich_uploader:
         project_images:
             uri_prefix:         /images/projects
             upload_destination: '%kernel.root_dir%/../web/images/projects'
+        sitestyle_images:
+            uri_prefix:         /images/style
+            upload_destination: '%kernel.root_dir%/../web/images/style'
+
 
 easy_admin:
     site_name: 'Lama Ghanem'
+    design:
+        menu:
+            - label: 'Site Style'
+              children: ['Header', 'Footer']
+            - label: 'Users' 
+              children: ['User']
+            - label: 'Projects' 
+              children: ['Project'] 
+
+            
+
     entities:
         Project:
             class: ProjectBundle\Entity\Project
@@ -95,7 +106,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'name', type: 'text', type_options: { required: true } }
-                    - { property: 'description', type: 'text', type_options: { required: true } }
+                    - { property: 'description', type: 'textarea', type_options: { required: true } }
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'ProjectBundle\Form\ImageType' }}
             list:
                 fields: ['id','name','description','images']
@@ -110,9 +121,28 @@ easy_admin:
                     # if administrators are allowed to edit users' passwords and roles, add this:
                     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
                     - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+        Header:
+            class: SiteStyleBundle\Entity\Header
+            label: 'Header'
+            form:
+                fields:
+                    - { property: 'title', type: 'text', type_options: { required: true } }
+                    - { property: 'description', type: 'text', type_options: { required: true } }
+                    - { property: 'imageFile', type: 'vich_image' }
+            list:
+                fields: ['id','title','description','imageName']
+                    
+        Footer:
+            class: SiteStyleBundle\Entity\Footer
+            label: 'Footer'
+            form:
+                fields:
+                    - { property: 'name', type: 'text', type_options: { required: true } }
+                    - { property: 'description', type: 'text', type_options: { required: true } }
+                   
 
 
 
 
 
-           
+
