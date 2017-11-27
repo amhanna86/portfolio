@@ -26,8 +26,8 @@ class generalData
       
       $siteNames = $em->getRepository('SiteStyleBundle:Header')->findAll();
        foreach ($siteNames as $siteName) {
-       
+          
        }
-        return new response($siteName->getTitle()); 
+        return array('siteName'=>$siteName->getTitle(),'description'=>$siteName->getDescription ()); 
     }
 }

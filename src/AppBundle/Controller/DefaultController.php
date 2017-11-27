@@ -18,11 +18,12 @@ class DefaultController extends Controller
     public function indexAction(Request $request,generalData $generalData )
     {
 
-     $siteName =  $generalData->siteName()->getContent() ;
-      
+     $siteName =  $generalData->siteName()['siteName'] ;
+     $description =  $generalData->siteName()['description'] ;
      
         return $this->render('default/index.html.twig', [
-          'siteName'=>$siteName
+          'siteName'=>$siteName,
+          'description'=>$description
         ]);
 
 
