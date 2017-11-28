@@ -28,6 +28,13 @@ class generalData
        foreach ($siteNames as $siteName) {
           
        }
-        return array('siteName'=>$siteName->getTitle(),'description'=>$siteName->getDescription ()); 
+       if($siteNames != NULL){
+         return array('siteName'=>$siteName->getTitle(),'description'=>$siteName->getDescription ()); 
+       }
+
+       else{
+        return array('siteName'=>'Change The Name','description'=>'From The Admin Page'); 
+       }
+       
     }
 }

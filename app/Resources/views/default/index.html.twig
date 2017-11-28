@@ -64,89 +64,19 @@
             <!-- Carousel -->
                 <section class="carousel">
                     <div class="reel">
-
+                    {% for project in projects%}
                         <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic01.jpg')}}" alt="" /></a>
-                           
-
+                            <a href="{{path('project_show',{'id':project.id})}}" class="image featured">
+                             {% for image in project.images %}  
+                                     <img src="{{ asset('images/projects/'~image.image )}}" alt="" />
+                            {% endfor %}
+                            </a>
                             <header>
                                 <h3><a href="#">Pulvinar sagittis congue</a></h3>
                             </header>
                             <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
                         </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic02.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Fermentum sagittis proin</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic03.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Sed quis rhoncus placerat</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic04.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Ultrices urna sit lobortis</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic05.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Varius magnis sollicitudin</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic01.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Pulvinar sagittis congue</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic02.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Fermentum sagittis proin</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic03.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Sed quis rhoncus placerat</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic04.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Ultrices urna sit lobortis</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
-                        <article>
-                            <a href="#" class="image featured"><img src="{{ asset('images/pic05.jpg')}}" alt="" /></a>
-                            <header>
-                                <h3><a href="#">Varius magnis sollicitudin</a></h3>
-                            </header>
-                            <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-                        </article>
-
+                    {% endfor %}
                     </div>
                 </section>
 
@@ -244,7 +174,7 @@
                                 <!-- Copyright -->
                                     <div class="copyright">
                                         <ul class="menu">
-                                            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                                            <li>&copy; Untitled. All rights reserved.</li><li>Design: Ali Mhanna</a></li>
                                         </ul>
                                     </div>
                             </div>

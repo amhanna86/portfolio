@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Service\generalData;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 
@@ -15,19 +16,16 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request,generalData $generalData )
+    public function indexAction(EntityManagerInterface $em ,Request $request,generalData $generalData )
     {
 
-     $siteName =  $generalData->siteName()['siteName'] ;
-     $description =  $generalData->siteName()['description'] ;
-     
+     $siteName =  $generalData->siteName()['siteName'];
+     $description =  $generalData->siteName()['description'];
+     $projects= $em->getRepository('ProjectBundle:Project')->findAll();
         return $this->render('default/index.html.twig', [
           'siteName'=>$siteName,
-          'description'=>$description
+          'description'=>$description,
+          'projects'=>$projects
         ]);
-
-
     }
-
-
 }

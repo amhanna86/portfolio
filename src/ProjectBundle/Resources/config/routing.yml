@@ -1,0 +1,4 @@
+project_show:
+  path:     /project/{id}
+  defaults: { _controller: "ProjectBundle:Default:show"}
+  methods:  [GET, POST]

@@ -14,4 +14,12 @@ class DefaultController extends Controller
     {
         return $this->render('ProjectBundle:Default:index.html.twig');
     }
+
+     /**
+     * @Route("show/{id}", name="project_show", requirements={"id": "\d+"})
+     */
+    public function showAction()
+    {
+        return $this->render('ProjectBundle:Default:show.html.twig');
+    }
 }
