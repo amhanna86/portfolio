@@ -22,8 +22,8 @@ class generalData
 
     public function siteName()
     {
-      $em = $this->em;
-      
+        $em = $this->em;
+
       $siteNames = $em->getRepository('SiteStyleBundle:Header')->findAll();
        foreach ($siteNames as $siteName) {
           
@@ -34,6 +34,24 @@ class generalData
 
        else{
         return array('siteName'=>'Change The Name','description'=>'From The Admin Page'); 
+       }
+       
+    }
+
+      public function socialMedia()
+    {
+        $em = $this->em;
+
+      $socialMedias = $em->getRepository('SiteStyleBundle:SocialMedia')->findAll();
+       //foreach ($socialMedias as $socialMedia) {
+          
+       //}
+       if($socialMedias != NULL){
+         return $socialMedias; 
+       }
+
+       else{
+        return array('name'=>'Add Some in The Admin Page','href'=>'homapage','iconclass'=>'icon fa-facebook '); 
        }
        
     }

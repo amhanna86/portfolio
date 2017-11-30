@@ -4,6 +4,8 @@ namespace ProjectBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use AppBundle\Service\generalData;
 
 class DefaultController extends Controller
 {
@@ -18,8 +20,12 @@ class DefaultController extends Controller
      /**
      * @Route("show/{id}", name="project_show", requirements={"id": "\d+"})
      */
-    public function showAction()
-    {
-        return $this->render('ProjectBundle:Default:show.html.twig');
+    public function showAction($id)
+    {   
+        $em = $this->getDoctrine()->getEntityManager();
+        $project = $em->getRepository('ProjectBundle:Project')->findOneById($id);
+        return $this->render('ProjectBundle:Default:show.html.twig',[
+            'projects' => $project
+            ]);
     }
 }

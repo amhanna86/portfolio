@@ -1,0 +1,46 @@
+<?php
+
+namespace SiteStyleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * SocialMedia
+ * @ORM\Table(name="socialmedia")
+ * @ORM\Entity(repositoryClass="SiteStyleBundle\Repository\SocialMediaRepository")
+ * 
+ */
+class SocialMedia {
+
+	/**
+	 * @var int
+	 * 
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+
+	/**
+	 * @var text
+	 * 
+	 * @ORM\Column(name="name", type="text")
+	 */
+	private $name;
+
+	/**
+	 * @var text
+	 * 
+	 * @ORM\Column(name="href", type="text")
+	 */
+	private $href;
+
+
+	/**
+	 * @var text
+	 * 
+	 * @ORM\Column(name="iconclass", type="text")
+	 */
+	private $iconclass;
+}

@@ -22,10 +22,12 @@ class DefaultController extends Controller
      $siteName =  $generalData->siteName()['siteName'];
      $description =  $generalData->siteName()['description'];
      $projects= $em->getRepository('ProjectBundle:Project')->findAll();
+     $socialmedia= $em->getRepository('SiteStyleBundle:SocialMedia')->findAll();
         return $this->render('default/index.html.twig', [
-          'siteName'=>$siteName,
+         // 'siteName'=>$siteName,
           'description'=>$description,
-          'projects'=>$projects
+          'projects'=>$projects,
+          'socialmedia'=>$socialmedia
         ]);
     }
 }
