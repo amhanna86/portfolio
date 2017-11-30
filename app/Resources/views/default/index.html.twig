@@ -25,31 +25,28 @@
                         </div>
                     <!-- Nav -->
                         <nav id="nav">
-                            <ul>
-                                <li><a href="{{path('homepage')}}">Home</a></li>
-                                <li>
-                                    <a href="#">Dropdown</a>
-                                    <ul>
-                                        <li><a href="#">Lorem ipsum dolor</a></li>
-                                        <li><a href="#">Magna phasellus</a></li>
-                                        <li><a href="#">Etiam dolore nisl</a></li>
-                                        <li>
-                                            <a href="#">And a submenu &hellip;</a>
-                                            <ul>
-                                                <li><a href="#">Lorem ipsum dolor</a></li>
-                                                <li><a href="#">Phasellus consequat</a></li>
-                                                <li><a href="#">Magna phasellus</a></li>
-                                                <li><a href="#">Etiam dolore nisl</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Veroeros feugiat</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="left-sidebar.html">Left Sidebar</a></li>
-                                <li><a href="right-sidebar.html">Right Sidebar</a></li>
-                                <li><a href="no-sidebar.html">No Sidebar</a></li>
-                            </ul>
-                        </nav>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="#">Gallery</a>
+									<ul>
+										<li><a href="#">Visualizations</a></li>
+										<li><a href="#">Hand Made</a></li>
+										<li><a href="#">Drawings</a></li>
+										<li>
+											<a href="#">Product &hellip;</a>
+											<ul>
+												<li><a href="#">Pillows</a></li>
+												<li><a href="#">Bags</a></li>
+											</ul>
+										</li>
+										
+									</ul>
+								</li>
+								<li><a href="left-sidebar.html">About Lama</a></li>
+								<li><a href="right-sidebar.html">Contact Me</a></li>
+							</ul>
+						</nav>
                 </div>
             <!-- Banner -->
                 <section id="banner">
@@ -162,16 +159,13 @@
                                 <!-- Contact -->
                                     <section class="contact">
                                         <ul class="icons">
-                                        {% if socialmedia is defined %}
-                                          {% for social in socialMedias.socialMedia %}
-                                         <li>
-                                             <a href="{{social.href}}" class="{{social.iconclass}}"><span class="label">{{social.name}}</span></a>
-                                         </li>
-                                          {% endfor %}
-                                       
-                                        {% else %}
-                                            give me your social media list 
-                                        {% endif %}
+                                        {% if socialMedias.socialMedia.social  is defined %}
+										{% for social in socialMedias.socialMedia %}
+										<li><a href="{{social.href}}" class="{{social.iconclass}}"><span class="label">{{social.name}}</span></a></li>
+										{% endfor %}
+                                    {% else %}
+                                        {{socialMedias.socialMedia.name}}
+                                    {% endif %}
                                         </ul>
                                     </section>
                                 <!-- Copyright -->
